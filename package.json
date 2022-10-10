@@ -1,0 +1,22 @@
+{
+  "name": "weekly-challenge-2022",
+  "version": "1.0.0",
+  "description": "Reto semanal de programación con JS",
+  "main": "(./challenges)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Miike0/Weekly-Challenge-2022.git"
+  },
+  "keywords": [
+    "challenge"
+  ],
+  "author": "Mike",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Miike0/Weekly-Challenge-2022/issues"
+  },
+  "homepage": "https://github.com/Miike0/Weekly-Challenge-2022#readme"
+}
