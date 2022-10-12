@@ -69,12 +69,29 @@ function fibonacciRecursive (num) {
     
 }
 
+//Fibonnaci with generator function 
+function* fibbonaci (num) {
+    let fib, n0 = 0, n1 = 1;
+
+    for (let i = 0; i < num; i++) {
+        yield n0;
+        fib = n0 + n1;
+        n0 = n1;
+        n1 = fib;
+    }
+}
+const fib = fibbonaci(10);
+
 function main () {
     let iterations = 50;
     fibonacci(iterations);
     // for (let num = 0; num < iterations; num++ ) {
     //     console.log(fibonacciRecursive(num));
     // }
+    
+    for (let i = 0; i < 10; i++) {
+        console.log(fib.next().value);
+    }
 }
 
 main();
