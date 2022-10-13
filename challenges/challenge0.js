@@ -17,9 +17,8 @@
  *
  */
 
-function main(){
-    
-    for (let i = 0; i <= 100; i++) {
+const fizzBuzz = (numMax) => {
+    for (let i = 1; i <= numMax; i++) {
         if (i % 3 == 0 && i % 5 == 0){
             console.log('fizzbuzz');
         }else if (i % 3 == 0) {
@@ -29,6 +28,29 @@ function main(){
         }else {
             console.log(i);
         }
+    }
+}
+
+function* fizzBuzzGenerator (numMax) {
+    for (let i = 1; i <= numMax; i++) {
+        if (i % 3 == 0 && i % 5 == 0){
+            yield 'fizzbuzz';
+        }else if (i % 3 == 0) {
+            yield 'fizz';
+        }else if (i % 5 == 0) {
+            yield 'buzz';
+        }else {
+            yield i;
+        }
+    }
+}
+
+function main(){
+    console.log(fizzBuzz(100));
+
+    const fbGenerator = fizzBuzzGenerator(100);
+    for (let i = 1; i < 100; i++) {
+        console.log(fbGenerator.next().value);
     }
 }
 main();
