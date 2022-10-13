@@ -80,7 +80,7 @@ function* fibbonaci (num) {
         n1 = fib;
     }
 }
-const fib = fibbonaci(10);
+
 
 function main () {
     let iterations = 50;
@@ -88,7 +88,7 @@ function main () {
     // for (let num = 0; num < iterations; num++ ) {
     //     console.log(fibonacciRecursive(num));
     // }
-    
+    const fib = fibbonaci(10);
     for (let i = 0; i < 10; i++) {
         console.log(fib.next().value);
     }
