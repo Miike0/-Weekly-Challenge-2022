@@ -1,14 +1,11 @@
 /*
- * Reto #7
- * CONTANDO PALABRAS
- * Fecha publicación enunciado: 14/02/22
- * Fecha publicación resolución: 21/02/22
- * Dificultad: MEDIA
+ * Reto #8
+ * DECIMAL A BINARIO
+ * Fecha publicación enunciado: 18/02/22
+ * Fecha publicación resolución: 02/03/22
+ * Dificultad: FÁCIL
  *
- * Enunciado: Crea un programa que cuente cuantas veces se repite cada palabra y que muestre el recuento final de todas ellas.
- * - Los signos de puntuación no forman parte de la palabra.
- * - Una palabra es la misma aunque aparezca en mayúsculas y minúsculas.
- * - No se pueden utilizar funciones propias del lenguaje que lo resuelvan automáticamente.
+ * Enunciado: Crea un programa se encargue de transformar un número decimal a binario sin utilizar funciones propias del lenguaje que lo hagan directamente.
  *
  * Información adicional:
  * - Usa el canal de nuestro discord (https://mouredev.com/discord) "🔁reto-semanal" para preguntas, dudas o prestar ayuda a la acomunidad.
@@ -18,45 +15,25 @@
  *
  */
 
-function wordCount (string) {
-    const regEx = /[^a-z0-9]/gi;
-    let stringLC = string.toLowerCase();
-
-    stringLC = stringLC.replace(regEx,' ').split(' ');
-
-    //After split, remove empty index
-    let array = stringLC.filter(element => {
-        return element != '';
-    });
-
-    //Find words duplicates into array
-    let toFindDuplicates = array => array.filter((item, index) => 
-        array.indexOf(item) == index
-    );
-    let noDuplicates = toFindDuplicates(array);
-
-    let aux = [], countWords = [];
-    for (let i = 0; i < array.length; i++) {
-        let count = 0;
-        aux[i] = array[i];
-        for (let j = 0; j < array.length; j++ ) {
-            if (aux[i] == array[j]) {
-                count++;
-                countWords[i] = count;
-                
-            }
-        }
+const decimalToBinary = numDec => {
+    if (numDec == 0) {
+        return numDec.toString();
     }
-
-    for (let i = 0; i < noDuplicates.length; i++) {
-        console.log(`${noDuplicates[i]}: se repite ${countWords[i]} veces.`)
+    let binary = [];
+    while (numDec > 0) {
+            binary.unshift(numDec % 2)//To add the result to the head of the array
+            numDec >>= 1; //Basically is numDec / 2 but without reminder if it exists
     }
+    return binary.join('');//To convert the array to string without ','
 }
 
 
-function main () {
-    wordCount('Hola, mi nombre es miguel, Mi nombre completo es Miguel Alvarez (Mike)');//hola mi nombre es miguel completo alvarez mike
-    wordCount('PEPITO, PEPITO pepito pepito');
+const main = () => {
+    console.log(decimalToBinary(28));
+    console.log(decimalToBinary(79));
+    console.log(decimalToBinary(95));
+    console.log(decimalToBinary(0));
+    console.log(decimalToBinary(1));
 }
 
 main();
