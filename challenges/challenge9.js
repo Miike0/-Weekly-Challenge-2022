@@ -21,7 +21,6 @@
 
 function isBalanced(string) {
     const expressions  = {
-        totalBalancedExpressiones: 3,
         symbols: ['(',')','[',']','{','}'],
         symbolsCounter: [0,0,0,0,0,0],
         isBalanced: [],
@@ -36,7 +35,7 @@ function isBalanced(string) {
             }
         }
     }
-    for (let counterIndex = 0; counterIndex <= (expressions.totalBalancedExpressiones + 1); counterIndex+=2) {
+    for (let counterIndex = 0; counterIndex <= ((expressions.symbols.length) / 2 ) + 1; counterIndex+=2) {
 
         if (expressions.symbolsCounter[counterIndex] == expressions.symbolsCounter[counterIndex + 1]){
             expressions.isBalanced.push(true);
