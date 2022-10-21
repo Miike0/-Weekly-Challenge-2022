@@ -43,7 +43,6 @@ function deleteCharacters (str1, str2) {
 
 
 const main = () => {
-    //console.log(deleteCharacters('Me gusta python','Me gusta JS'));
     deleteCharacters('Me gusta Python','Me gusta JS');
     deleteCharacters('Miguel','Angel');
     deleteCharacters('out1 contendrá todos los caracteres presentes en la str1 pero NO estén presentes en str2.','out2 contendrá todos los caracteres presentes en la str2 pero NO estén presentes en str1.');
